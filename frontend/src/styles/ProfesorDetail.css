@@ -1,0 +1,399 @@
+/* ProfesorDetail.css - Diseño Figma */
+
+.detalle-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fafbfc;
+  min-height: 100vh;
+}
+
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.btn-volver:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+  color: #764ba2;
+}
+
+/* Header */
+.detalle-header {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.detalle-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #1f2937;
+  font-weight: 700;
+  flex: 1;
+}
+
+.detalle-header .department {
+  margin: 6px 0 0 0;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.estado-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.estado-badge.disponible {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+
+.estado-badge.en-clase {
+  background-color: #eff6ff;
+  color: #0c4a6e;
+}
+
+.estado-badge.en-junta {
+  background-color: #fffbeb;
+  color: #78350f;
+}
+
+.estado-badge.fuera-del-campus {
+  background-color: #f5f3ff;
+  color: #5b21b6;
+}
+
+/* Cards Grid - Figma Style */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  border-color: #667eea;
+}
+
+.detail-card .card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-radius: 10px;
+  color: #667eea;
+  font-size: 24px;
+}
+
+.detail-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.card-item .item-icon {
+  font-size: 20px;
+  color: #667eea;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.card-item > div {
+  flex: 1;
+}
+
+.card-item label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+}
+
+.card-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #374151;
+  font-weight: 500;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.location-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.location-building {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.equipamiento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.equipamiento-tags .tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+/* Horario Section */
+.horario-section {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.horario-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.4rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.horario-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.horario-tabla thead {
+  background-color: #f3f4f6;
+}
+
+.horario-tabla th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 0.9rem;
+  border-bottom: 2px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.horario-tabla td {
+  padding: 14px 15px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.horario-tabla tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.actividad-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.actividad-badge.clase {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.actividad-badge.laboratorio {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.sin-horario {
+  padding: 40px;
+  text-align: center;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  color: #9ca3af;
+}
+
+.sin-horario p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Loading y Error */
+.loading,
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .detalle-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detalle-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .detalle-container {
+    padding: 20px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .detail-card {
+    padding: 20px;
+  }
+
+  .horario-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .horario-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .detalle-header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .detalle-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .horario-tabla {
+    font-size: 0.85rem;
+  }
+
+  .horario-tabla th,
+  .horario-tabla td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detalle-container {
+    padding: 15px;
+  }
+
+  .btn-volver {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .detalle-header {
+    padding: 16px;
+    margin-bottom: 16px;
+    flex-direction: column;
+  }
+
+  .detalle-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .detail-card {
+    padding: 16px;
+  }
+
+  .card-content {
+    gap: 12px;
+  }
+
+  .horario-section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .horario-tabla {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .equipamiento-tags {
+    gap: 6px;
+  }
+
+  .equipamiento-tags .tag {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+}

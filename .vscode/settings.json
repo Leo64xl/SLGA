@@ -1,0 +1,9 @@
+{
+  "java.project.sourcePaths": [
+    "backend/src/main/java",
+    "backend/src/test/java"
+  ],
+  "java.project.outputPath": "backend/build/classes",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.import.gradle.enabled": true
+}

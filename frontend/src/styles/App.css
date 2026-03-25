@@ -1,0 +1,184 @@
+/* --- Estilos Generales --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #fafbfc;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==================== NAVBAR ==================== */
+.app-navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 26px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.navbar-logo:hover {
+  opacity: 0.8;
+}
+
+.navbar-logo svg {
+  color: #667eea;
+  flex-shrink: 0;
+  min-width: 28px;
+}
+
+.navbar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navbar-text h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: -0.3px;
+}
+
+.navbar-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* ==================== CONTENT ==================== */
+.app-content {
+  flex: 1;
+  background-color: #fafbfc;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 0 20px;
+  }
+  
+  .navbar-text h1 {
+    font-size: 1.1rem;
+  }
+  
+  .navbar-text p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-navbar {
+    padding: 14px 0;
+  }
+  
+  .navbar-content {
+    padding: 0 15px;
+  }
+  
+  .navbar-logo {
+    gap: 10px;
+  }
+  
+  .navbar-logo svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .navbar-text h1 {
+    font-size: 0.95rem;
+  }
+  
+  .navbar-text p {
+    font-size: 0.75rem;
+    display: none;
+  }
+}
+
+.detalle-header {
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detalle-header h2 {
+  color: #2b6cb0;
+  margin-top: 0;
+}
+
+/* --- Tabla de Horarios --- */
+.horario-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.horario-tabla th, .horario-tabla td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.horario-tabla th {
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.horario-tabla tr:hover {
+  background-color: #fbfbfc;
+}
+
+/* --- Badges de Actividad --- */
+.actividad-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.actividad-badge.clase { background-color: #ebf8ff; color: #2b6cb0; border: 1px solid #bee3f8; }
+.actividad-badge.laboratorio { background-color: #fffaf0; color: #c05621; border: 1px solid #feebc8; }
+.actividad-badge.asesoría { background-color: #f0fff4; color: #2f855a; border: 1px solid #c6f6d5; }
+
+.sin-horario {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px dashed #fc8181;
+  text-align: center;
+}

@@ -1,0 +1,378 @@
+/* frontend/src/pages/Home.css - Diseño basado en Figma */
+
+.home-page-container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fafbfc;
+}
+
+/* ==================== WRAPPER ==================== */
+.home-wrapper {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==================== CONTADORES ==================== */
+.status-counters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.counter-card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.counter-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.counter-card.status-disponible {
+  border-left-color: #10b981;
+}
+
+.counter-card.status-disponible .counter-icon {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.counter-card.status-en-clase {
+  border-left-color: #3b82f6;
+}
+
+.counter-card.status-en-clase .counter-icon {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.counter-card.status-en-reunión {
+  border-left-color: #f59e0b;
+}
+
+.counter-card.status-en-reunión .counter-icon {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.counter-card.status-fuera-del-campus {
+  border-left-color: #8b5cf6;
+}
+
+.counter-card.status-fuera-del-campus .counter-icon {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.counter-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.counter-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.counter-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.counter-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.counter-icon {
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+/* ==================== FILTROS ==================== */
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+  background: white;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: #9ca3af;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 11px 16px 11px 38px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  background-color: #f9fafb;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: white;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-input::placeholder {
+  color: #b4b8c1;
+}
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.filter-select {
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #374151;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.filter-select:focus {
+  outline: none;
+  background-color: white;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-select option {
+  color: #1f2937;
+  background: white;
+  padding: 8px;
+}
+
+/* ==================== RESULTADOS ==================== */
+.results-info {
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.results-info p {
+  margin: 0;
+}
+
+.results-info strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* ==================== GRID DE TARJETAS ==================== */
+.professor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  flex: 1;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .home-wrapper {
+    padding: 20px 20px;
+  }
+
+  .status-counters {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .professor-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-wrapper {
+    padding: 18px;
+  }
+
+  .status-counters {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .counter-card {
+    padding: 14px 12px;
+  }
+
+  .counter-value {
+    font-size: 1.6rem;
+  }
+
+  .counter-label {
+    font-size: 0.8rem;
+  }
+
+  .filter-section {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .filter-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .professor-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-wrapper {
+    padding: 14px;
+  }
+
+  .status-counters {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .counter-card {
+    padding: 14px 12px;
+  }
+
+  .counter-value {
+    font-size: 1.4rem;
+  }
+
+  .counter-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .filter-section {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .professor-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-wrapper {
+    padding: 14px;
+  }
+
+  .status-counters {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .counter-card {
+    padding: 14px 12px;
+  }
+
+  .counter-value {
+    font-size: 1.4rem;
+  }
+
+  .counter-label {
+    font-size: 0.75rem;
+  }
+
+  .counter-icon {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+  }
+
+  .filter-section {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .filter-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 10px 14px 10px 36px;
+  }
+
+  .filter-select {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .professor-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
