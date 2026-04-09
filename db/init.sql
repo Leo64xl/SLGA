@@ -2,8 +2,43 @@
 -- SLGA Database Initialization Script
 
 CREATE DATABASE slga_db;
+
 USE slga_db;
-SHOW TABLES;
+
+-- ===================================================================
+-- CREACIÓN DE TABLAS
+-- ===================================================================
+
+CREATE TABLE aulas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    tipo VARCHAR(50),
+    capacidad INT,
+    equipamiento TEXT
+);
+
+CREATE TABLE profesores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    departamento VARCHAR(100),
+    estado_actual VARCHAR(50),
+    email VARCHAR(100),
+    telefono VARCHAR(50)
+);
+
+CREATE TABLE horarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    dia_semana VARCHAR(20) NOT NULL,
+    hora_inicio TIME NOT NULL,
+    hora_fin TIME NOT NULL,
+    materia VARCHAR(150) NOT NULL,
+    tipo_actividad VARCHAR(50),
+    profesor_id INT,
+    aula_id INT,
+    FOREIGN KEY (profesor_id) REFERENCES profesores(id) ON DELETE CASCADE,
+    FOREIGN KEY (aula_id) REFERENCES aulas(id) ON DELETE SET NULL
+);
 
 -- ===================================================================
 -- INSERTAR AULAS - Labs y espacios administrativos

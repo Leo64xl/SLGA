@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: mysql_slga
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root_password
@@ -12,34 +12,27 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
-# Contenedor del Backend (Modo Desarrollo)
   backend:
-    image: eclipse-temurin:17-jdk # Usamos el JDK directamente
-    container_name: spring_backend
-    working_dir: /app
+    build: ./backend
+    container_name: spring_slga
     restart: always
     ports:
-      - "8081:8080" 
+      - "8081:8080"
     depends_on:
       - db
-    volumes:
-      - ./backend:/app 
-    command: ./gradlew bootRun # Le decimos a Gradle que recompile y ejecute
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/slga_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root_password
 
   frontend:
-    image: node:20-alpine
-    container_name: react_frontend
-    working_dir: /app
+    build: ./frontend
+    container_name: react_slga
+    restart: always
     ports:
-      - "5000:5173" # Vite expone el puerto 5173 internamente
-    volumes:
-      - ./frontend:/app 
-    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+      - "5000:80"
     depends_on:
       - backend
 
