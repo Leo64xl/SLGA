@@ -19,7 +19,7 @@ function Home() {
     };
     
     fetchProfesores();
-    const interval = setInterval(fetchProfesores, 5000);
+    const interval = setInterval(fetchProfesores, 60000);
     return () => clearInterval(interval);
   }, []);
 

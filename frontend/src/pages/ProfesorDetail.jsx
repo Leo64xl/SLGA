@@ -67,62 +67,67 @@ const ProfesorDetail = () => {
         </div>
 
         {/* Card 2: Ubicación Actual */}
-        {profesor.horarios && profesor.horarios.length > 0 && (
-          <div className="detail-card">
-            <div className="card-icon">
-              <FiMapPin />
-            </div>
-            <h3>Ubicación Actual</h3>
-            <div className="card-content">
-              <div className="card-item">
-                <div>
-                  <label>Laboratorio</label>
-                  <p className="location-name">{profesor.horarios[0].aula.nombre}</p>
-                  <p className="location-building">Edificio B</p>
-                </div>
+        <div className="detail-card">
+          <div className="card-icon">
+            <FiMapPin />
+          </div>
+          <h3>Ubicación Actual</h3>
+          <div className="card-content">
+            <div className="card-item">
+              <div>
+                <label>Lugar</label>
+                {/* Usamos la nueva variable del backend */}
+                <p className="location-name">{profesor.ubicacionActual}</p>
+                <p className="location-building">
+                  {profesor.estadoActual === 'Fuera del campus' ? '-' : 'Edificio Principal'}
+                </p>
               </div>
-              <div className="card-item">
-                <div>
-                  <label>Última Actualización</label>
-                  <p>Actualizado hace 5 minutos</p>
-                </div>
+            </div>
+            <div className="card-item">
+              <div>
+                <label>Última Actualización</label>
+                <p>En tiempo real</p>
               </div>
             </div>
           </div>
-        )}
+        </div>
 
-        {/* Card 3: Información del Laboratorio */}
-        {profesor.horarios && profesor.horarios.length > 0 && (
+        
+        {/* Card 3: Detalles Técnicos */}
+        {profesor.estadoActual === 'En clase' && profesor.aulaActual && (
           <div className="detail-card">
             <div className="card-icon">
               <FiCpu />
             </div>
             <h3>Información del Laboratorio</h3>
             <div className="card-content">
+              {/* Nota: Edificio y Piso siguen estáticos porque no existen en tu BD actual, 
+                  pero si los agregas a la tabla Aulas en el futuro, podrías ponerlos dinámicos también */}
               <div className="card-item">
                 <div>
                   <label>Edificio</label>
-                  <p>Edificio B</p>
+                  <p>Edificio Principal</p> 
                 </div>
               </div>
               <div className="card-item">
                 <div>
                   <label>Piso</label>
-                  <p>2do Piso</p>
+                  <p>Planta Baja</p>
                 </div>
               </div>
+              
               <div className="card-item">
                 <div>
                   <label>Capacidad</label>
-                  <p>{profesor.horarios[0].aula.capacidad ? `${profesor.horarios[0].aula.capacidad} personas` : 'No especificada'}</p>
+                  <p>{profesor.aulaActual.capacidad ? `${profesor.aulaActual.capacidad} personas` : 'No especificada'}</p>
                 </div>
               </div>
               <div className="card-item">
                 <div>
                   <label>Equipamiento</label>
                   <div className="equipamiento-tags">
-                    {profesor.horarios[0].aula.equipamiento ? (
-                      profesor.horarios[0].aula.equipamiento.split(',').map((equipo, idx) => (
+                    {profesor.aulaActual.equipamiento ? (
+                      profesor.aulaActual.equipamiento.split(',').map((equipo, idx) => (
                         <span key={idx} className="tag">{equipo.trim()}</span>
                       ))
                     ) : (

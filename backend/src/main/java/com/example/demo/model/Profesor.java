@@ -51,4 +51,16 @@ public class Profesor {
     
     public String getTelefono() { return telefono; }
     public void setTelefono(String telefono) { this.telefono = telefono; }
+
+    @Transient
+    private String ubicacionActual;
+
+    public String getUbicacionActual() { return ubicacionActual; }
+    public void setUbicacionActual(String ubicacionActual) { this.ubicacionActual = ubicacionActual; }
+
+    @Transient
+    private Aula aulaActual;
+
+    public Aula getAulaActual() { return aulaActual; }
+    public void setAulaActual(Aula aulaActual) { this.aulaActual = aulaActual; }
 }
